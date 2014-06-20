@@ -4,33 +4,61 @@
 <head>
   <link type="text/css" rel="stylesheet" href="/stylesheets/main.css" />
   <link type="text/css" rel="stylesheet" href="/stylesheets/bootstrap.css" />
+  <link type="text/css" rel="stylesheet" href="/stylesheets/bootstrap-responsive.css" />
   <script src="/stylesheets/holder.js"></script>
 </head>
   <body>
 	<div class="container">
 	<div class="page-header">
-		<h1> My Guestbook <small> built with google app engine </small></h1>
+	
+		<h1> bucketlist <small> a community of resources for students in tech </small></h1>
+
+<nav class="navbar navbar-default">
+<ul class="nav navbar-nav">
+    <li><a href="{{ url|safe }}">{{ login_logout_text }}</a></li>
+    <li><a href="{{ url|safe }}">My Buckets </a></li>
+    <li><button type="submit" class="btn btn-default"><a href="{{ url|safe }}"> + Upload </a></li>
+</ul>
+</nav>
 	</div>
 <div class="row">
-	{% for greeting in greetings %}
-	  <div class="col-xs-6 col-md-3">
+	<div class="span2">
+<h2>Categories</h2>
+<h3> <a href="">Projects</a></h3>
+<h3> <a href=""> Events</a></h3><br>
+</div>
+<div class="span10">
+	  <div class="span3">
 		<a href="#" class="thumbnail">
-			<img data-src="holder.js/134x180" alt="...">
+			<img src="http://i.huffpost.com/gen/1222898/thumbs/o-CANDY-CRUSH-facebook.jpg" alt="...">
+			<div class="caption">
+
+				
+					<b>from amritamaz</b>
+				
+				<blockquote>My Description</blockquote>
+			</div>
+		</a>
+		</div>
+	{% for greeting in greetings %}
+	  <div class="span3">
+		<a href="#" class="thumbnail">
+			<img data-src="holder.js/250x250" alt="...">
 			<div class="caption">
 
 				{% if greeting.author %}
-					<b>{{ greeting.author.nickname() }}</b> wrote:
+					<b>from {{ greeting.author.nickname() }}</b>
 				{% else %}
 					An anonymous person wrote:
 				{% endif %}
 				<blockquote>{{ greeting.content }}</blockquote>
-				<span class="badge">{{ greeting.date|datetimeformat }}</span>
+<!--				<span class="badge">{{ greeting.date|datetimeformat }}</span>-->
 			</div>
 		</a>
 		</div>
 	{% endfor %}
 		</div>
-
+</div>
 <div class="panel">
     <form action="/sign?guestbook_name={{ guestbook_name }}" method="post">
       <div><textarea name="content" rows="3" cols="60"></textarea></div>
@@ -44,7 +72,6 @@
       <input type="submit" value="switch">
     </form>
 
-    <a href="{{ url|safe }}">{{ login_logout_text }}</a>
 	</div>
   </body>
 </html>
