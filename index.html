@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+{% autoescape true %}
+<html>
+<head>
+  <link type="text/css" rel="stylesheet" href="/stylesheets/main.css" />
+  <link type="text/css" rel="stylesheet" href="/stylesheets/bootstrap.css" />
+  <script src="/stylesheets/holder.js"></script>
+</head>
+  <body>
+	<div class="container">
+	<div class="page-header">
+		<h1> My Guestbook <small> built with google app engine </small></h1>
+	</div>
+<div class="row">
+	{% for greeting in greetings %}
+	  <div class="col-xs-6 col-md-3">
+		<a href="#" class="thumbnail">
+			<img data-src="holder.js/134x180" alt="...">
+			<div class="caption">
+
+				{% if greeting.author %}
+					<b>{{ greeting.author.nickname() }}</b> wrote:
+				{% else %}
+					An anonymous person wrote:
+				{% endif %}
+				<blockquote>{{ greeting.content }}</blockquote>
+				<span class="badge">{{ greeting.date|datetimeformat }}</span>
+			</div>
+		</a>
+		</div>
+	{% endfor %}
+		</div>
+
+<div class="panel">
+    <form action="/sign?guestbook_name={{ guestbook_name }}" method="post">
+      <div><textarea name="content" rows="3" cols="60"></textarea></div>
+      <div><input type="submit" value="Sign Guestbook"></div>
+    </form>
+</div>
+    <hr>
+
+    <form>Guestbook name:
+      <input value="{{ guestbook_name }}" name="guestbook_name">
+      <input type="submit" value="switch">
+    </form>
+
+    <a href="{{ url|safe }}">{{ login_logout_text }}</a>
+	</div>
+  </body>
+</html>
+{% endautoescape %}
