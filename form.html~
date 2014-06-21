@@ -58,7 +58,7 @@ input select {
     <input type="checkbox" name="category" value="java">Java<br>
   <input type="checkbox" name="category" value="c">C<br> 
   <input type="checkbox" name="category" value="python">Python<br>
-  <input type="checkbox" name="category" value="javascript">JavaScript<br><br>
+  <input type="checkbox" name="category" value="c">JavaScript<br><br>
 
     <input type="checkbox" name="category" value="adventure">Adventure<br>
   <input type="checkbox" name="category" value="number">Number<br> 
