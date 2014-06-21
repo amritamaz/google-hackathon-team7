@@ -122,11 +122,10 @@ class Guestbook(webapp2.RequestHandler):
         greeting.types = cgi.escape(self.request.get('types'))
         greeting.description = cgi.escape(self.request.get('description'))
         greeting.image = address
-        greeting.link = cgi.escape(self.request.get('link'))
-  		
-		greeting.language = cgi.escape(self.request.get('language'))
-		greeting.gametype = cgi.escape(self.request.get('gametype'))
-		greeting.event = cgi.escape(self.request.get('event'))
+        greeting.link = cgi.escape(self.request.get('link'))  		
+        #greeting.language = cgi.escape(self.request.get('language'))
+        #greeting.gametype = cgi.escape(self.request.get('gametype'))
+        #greeting.event = cgi.escape(self.request.get('event'))
 
 
         greeting.put()
