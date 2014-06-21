@@ -162,15 +162,26 @@ $('.events-jobfairs').click( function(){
 
 	<div class="page-header">
 		<h1> bucketlist <small> a community of resources for students in tech </small></h1>
+<nav class="navbar navbar-default " role="navigation">
+  <div class="container">
+          <ul class="nav navbar-nav">
+        <li class="active"><a href="#">{{ login_logout_text }}</a></li>
+        <li><a href="#">My Buckets</a></li>
+	    <form action="upload"><input class="btn btn-default navbar-btn" type="submit" value="Upload"></form>
 
-		
+      </ul>
+
+  </div>
+</nav>
+
+<!-- 		
 	<nav>
 		<ul class="nav navbar">
 		    <li><a href="{{ url|safe }}">{{ login_logout_text }}</a></li>
 		    <li><a href="{{ url|safe }}">My Buckets </a></li>
 		    <form action="upload"><input type="submit" value="Upload"></form>
 		</ul>
-	</nav>
+	</nav> -->
 <br>
 	</div>
 
