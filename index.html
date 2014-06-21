@@ -8,7 +8,7 @@
   <script src="/static/holder.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <script src="http://isotope.metafizzy.co/isotope.pkgd.min.js"></script>
-
+<title>Bucket List</title>
 <script>
 
 $(document).ready(function() {
@@ -31,6 +31,10 @@ $(document).ready(function() {
 			$("#game-row").hide();
 		}
 	});
+});
+
+$(document).ready(function() {
+
 });
 </script>
 
@@ -71,11 +75,37 @@ $('#game-row').on( 'click', 'button', function() {
 </nav>
 	</div>
 <div class="row">
-	<div class="span2">
-<h2>Buckets</h2>
-<h3> <a href="">Projects</a></h3>
-<h3> <a href="">Outreach</a></h3><br>
-</div>
+	<div class="span2" id="buckets">
+	<h2>Buckets</h2>
+		<ul id="menu">
+		<li id="menu-projects"> <a href="">Projects</a></li>
+			<ul id="projects-items">
+			<li id="proglang"> <a href="">Programming Languages</a></li>
+			<li id="gametype"> <a href="">Games</a></li>
+			</ul>
+		<li id="menu-outreach"> <a href="">Outreach</a></li><br>
+			<ul id="outreach-items">
+			<li id="menu-school"> <a href="">School Level</a></li>
+				<ul id="school-items">
+				<li id="k-6"> <a href="">Elementary and earlier</a></li>
+				<li id="middleschool"> <a href="">Middle School</a></li>
+				<li id="highschool"> <a href="">High School</a></li>
+				<li id="college"> <a href="">College</a></li>
+				</ul>
+			<li item="menu-diversity"> <a href="">Diversity</a></li>
+				<ul id="diversity-items">
+				<li id="women"> <a href="">Women</a></li>
+				<li id="veterans"> <a href="">Veterans</a></li>
+				<li id="disabilities"> <a href="">Disabilities</a></li>
+				<li id="minorities"> <a href="">Minorities</a></h5>
+			</ul>
+			</ul>
+		<li id="menu-events"> <a href="">Events</a></li><br>
+			<h4> <a href="">Hackathons</a></h4>
+			<h4> <a href="">Tech Talks</a></h4>
+			<h4> <a href="">Job Fairs</a></h4>
+		</ul>
+	</div>
 <div class="span10">
 
 <select id="filtertype">
@@ -100,19 +130,19 @@ $('#game-row').on( 'click', 'button', function() {
 
 <div class="isotope">
 		{% for greeting in greetings %}
-	  <div class="item span3 {{greeting.category}}">
-		<a href="#" class="thumbnail">
+	  <div class="item span3 {{greeting.category}} ">
+		<a href="{{greeting.link}}" class="thumbnail">
 			<img src="{{greeting.image}}" alt="...">
 			<div class="caption">
 
-				{% if greeting.author %}
-					<b>from {{ greeting.author.nickname() }}</b>
-				{% else %}
-					An anonymous person wrote:
-				{% endif %}
-				<blockquote>{{ greeting.content }}</blockquote>
+				<b>{{greeting.title}}</b>
 				<blockquote>{{ greeting.description }}</blockquote>
-				<span class="badge">{{ greeting.date }}</span>
+				<span class="badge">{{ greeting.date }}</span><br>
+				{% if greeting.author %}
+					<i>from {{ greeting.author.nickname() }}</i>
+				{% else %}
+					<i>from an anonymous person</i>
+				{% endif %}
 
 			</div>
 		</a>

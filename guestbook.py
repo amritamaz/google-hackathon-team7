@@ -36,6 +36,7 @@ class Greeting(ndb.Model):
     category = ndb.StringProperty(indexed=False)
     description = ndb.StringProperty(indexed=False)
     image = ndb.StringProperty(indexed=False)
+    types = ndb.StringProperty(indexed=False)
     link = ndb.StringProperty(indexed=False)
     date = ndb.DateTimeProperty(auto_now_add=True)
 
@@ -115,6 +116,7 @@ class Guestbook(webapp2.RequestHandler):
 
         greeting.title = cgi.escape(self.request.get('title'))
         greeting.category = cgi.escape(self.request.get('category'))
+        greeting.types = cgi.escape(self.request.get('types'))
         greeting.description = cgi.escape(self.request.get('description'))
         greeting.image = address
         greeting.link = cgi.escape(self.request.get('link'))
