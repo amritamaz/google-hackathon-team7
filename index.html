@@ -2,10 +2,10 @@
 {% autoescape true %}
 <html>
 <head>
-  <link type="text/css" rel="stylesheet" href="/stylesheets/main.css" />
-  <link type="text/css" rel="stylesheet" href="/stylesheets/bootstrap.css" />
-  <link type="text/css" rel="stylesheet" href="/stylesheets/bootstrap-responsive.css" />
-  <script src="/stylesheets/holder.js"></script>
+  <link type="text/css" rel="stylesheet" href="/static/main.css" />
+  <link type="text/css" rel="stylesheet" href="/static/bootstrap.css" />
+  <link type="text/css" rel="stylesheet" href="/static/bootstrap-responsive.css" />
+  <script src="/static/holder.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <script src="http://isotope.metafizzy.co/isotope.pkgd.min.js"></script>
 
@@ -66,7 +66,7 @@ $('#game-row').on( 'click', 'button', function() {
 <ul class="nav navbar-nav">
     <li><a href="{{ url|safe }}">{{ login_logout_text }}</a></li>
     <li><a href="{{ url|safe }}">My Buckets </a></li>
-    <li><button type="submit" class="btn btn-default"><a href="{{ url|safe }}"> + Upload </a></li>
+    <li><button type="submit" class="btn btn-default"><a href="/static/form.html"> + Upload </a></li>
 </ul>
 </nav>
 	</div>
