@@ -1,0 +1,15 @@
+.isotope:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.item {
+	float: left;
+	margin-bottom: 30px;
+}
+
+
+.proj-submenu, .outreach-submenu, .events-submenu, 
+.proj-pl-submenu, .proj-games-submenu, .outreach-div-submenu,
+.outreach-school-submenu {display:none;}

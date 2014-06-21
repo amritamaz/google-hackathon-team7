@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+{% autoescape true %}
+<html>
+  <body>
+
+    <form action="sign" method="post">
+       Title:<textarea name="title" rows="1" cols="60"></textarea>
+    <form action="sign" method="post"><br>
+       Category:
+    <select name="category">
+      <option value="project">Project</option>
+      <option value="events">Events</option>
+    </select> 
+    <form action="sign" method="post"><br>
+       Description:<textarea name="description" rows="1" cols="60"></textarea>
+    <form action="sign" method="post"><br>
+       Image:<textarea name="image" rows="1" cols="60"></textarea>
+    <form action="sign" method="post"><br>
+       Link:<textarea name="link" rows="1" cols="60"></textarea>
+      <div><input type="submit" value="Submit"></div>
+    </form>
+  </body>
+</html>
+{% endautoescape %}

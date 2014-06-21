@@ -2,34 +2,40 @@
 {% autoescape true %}
 <html>
 <head>
-  <link type="text/css" rel="stylesheet" href="/stylesheets/main.css" />
-  <link type="text/css" rel="stylesheet" href="/stylesheets/bootstrap.css" />
-  <link type="text/css" rel="stylesheet" href="/stylesheets/bootstrap-responsive.css" />
-  <script src="/stylesheets/holder.js"></script>
+	<link rel="icon" type="image/ico" href="/static/Bucket.ico"/>
+  <link type="text/css" rel="stylesheet" href="/static/main.css" />
+  <link type="text/css" rel="stylesheet" href="/static/bootstrap.css" />
+  <link type="text/css" rel="stylesheet" href="/static/bootstrap-responsive.css" />
+  <script src="/static/holder.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <script src="http://isotope.metafizzy.co/isotope.pkgd.min.js"></script>
-
+<title>Bucket List</title>
 <script>
+$(function() {
+    $('#proj-menu').click(function(){
+      $('.proj-submenu').toggle();
 
-$(document).ready(function() {
-	$("#pl-row").hide();
-	$("#game-row").hide();
+    });
+     $('#pl-menu').click(function(){
+      $('.proj-pl-submenu').toggle();
+    });
+    $('#game-menu').click(function(){
+      $('.proj-games-submenu').toggle();
+    });
 
-	$("#filtertype").change(function() {
-		var result= $(this).val();
-		if (result=="pl-row"){
-			$("#pl-row").show();
-			$("#game-row").hide();
-		}
-		else if (result=="game-row"){
-			$("#pl-row").hide();
-			$("#game-row").show();
-		}
-		else {
-			$("#pl-row").hide();
-			$("#game-row").hide();
-		}
-	});
+    $('#outreach-menu').click(function(){
+      $('.outreach-submenu').toggle();
+    });
+        $('#school-menu').click(function(){
+      $('.outreach-school-submenu').toggle();
+    });
+    $('#diver-menu').click(function(){
+      $('.outreach-div-submenu').toggle();
+    });
+
+    $('#events-menu').click(function(){
+      $('.events-submenu').toggle();
+    });
 });
 </script>
 
@@ -42,46 +48,121 @@ $(document).ready(function() {
       columnWidth: 200
     }
   });
-$('#pl-row').on( 'click', 'button', function() {
-  var filterValue = $(this).attr('data-filter');
+// $('#pl-row').on( 'click', 'button', function() {
+//   var filterValue = $(this).attr('data-filter');
+//   $('.isotope').isotope({ filter: filterValue });
+// });
+
+ $('#pl-menu').click( function(){
+	  var filterValue = $(this).attr('data-filter');
   $('.isotope').isotope({ filter: filterValue });
 });
 
-$('#game-row').on( 'click', 'button', function() {
-  var filterValue = $(this).attr('data-filter');
+ $('#game-menu').click( function(){
+	  var filterValue = $(this).attr('data-filter');
   $('.isotope').isotope({ filter: filterValue });
 });
+
+$('.game-puzz').click( function(){
+	  var filterValue = $(this).attr('data-filter');
+  $('.isotope').isotope({ filter: filterValue });
+});
+$('.game-num').click( function(){
+	  var filterValue = $(this).attr('data-filter');
+  $('.isotope').isotope({ filter: filterValue });
+});
+
+$('.game-adv').click( function(){
+	  var filterValue = $(this).attr('data-filter');
+  $('.isotope').isotope({ filter: filterValue });
+});
+
+$('.proj-python').click( function(){
+	  var filterValue = $(this).attr('data-filter');
+  $('.isotope').isotope({ filter: filterValue });
+});
+
+$('.proj-c').click( function(){
+	  var filterValue = $(this).attr('data-filter');
+  $('.isotope').isotope({ filter: filterValue });
+  });
+
+
+$('.proj-js').click( function(){
+	  var filterValue = $(this).attr('data-filter');
+  $('.isotope').isotope({ filter: filterValue });
+});
+
+// $('#game-row').on( 'click', 'button', function() {
+//   var filterValue = $(this).attr('data-filter');
+//   $('.isotope').isotope({ filter: filterValue });
+// });
 }); 
 </script>
 
 </head>
   <body>
-	<div class="container">
+
+	<div class="container"><nav class="navbar navbar-default">
+<ul class="nav navbar-nav">
+    <li><a href="{{ url|safe }}">{{ login_logout_text }}</a></li>
+    <li><a href="{{ url|safe }}">My Buckets </a></li>
+    <form action="/upload"><input type="submit" value="Upload"></form>
+    <!--<li><a href="/upload"><button type="submit" class="btn btn-default"> + Upload </a></li>-->
+</ul>
+</nav>
+<br>
+
 	<div class="page-header">
 	
 		<h1> bucketlist <small> a community of resources for students in tech </small></h1>
 
-<nav class="navbar navbar-default">
-<ul class="nav navbar-nav">
-    <li><a href="{{ url|safe }}">{{ login_logout_text }}</a></li>
-    <li><a href="{{ url|safe }}">My Buckets </a></li>
-    <li><button type="submit" class="btn btn-default"><a href="{{ url|safe }}"> + Upload </a></li>
-</ul>
-</nav>
 	</div>
-<div class="row">
-	<div class="span2">
-<h2>Buckets</h2>
-<h3> <a href="">Projects</a></h3>
-<h3> <a href="">Outreach</a></h3><br>
-</div>
-<div class="span10">
 
-<select id="filtertype">
-	<option >Select filter type...</option>
-	<option value="pl-row" id="proglang">Programming Languages</option>
-	<option value="game-row" id="gametype">Game Type</option>
-</select>
+<div class="row">
+	<div class="span2" id="buckets">
+	<h2>Buckets</h2>
+	<ul id="menu">
+		<li id="proj-menu">Projects</li>
+			<ul class="proj-submenu">
+			<li data-filter="*" id="pl-menu" class="proj-submenu">Programming Languages</li>
+				<ul class="proj-pl-submenu">
+					<li data-filter=".pl-python" class="proj-python proj-pl-submenu">Python</li>
+					<li data-filter=".pl-c" class="proj-c proj-pl-submenu">C</li>
+					<li data-filter=".pl-javascript" class="proj-js proj-pl-submenu">Javascript</li>
+				</ul>
+			<li data-filter="*" id="game-menu" class="proj-submenu">Games</li>
+				<ul class="proj-submenu">
+					<li data-filter=".game-puzzle" class="game-puzz proj-games-submenu">Puzzle</li>
+					<li data-filter=".game-number" class="game-num proj-games-submenu">Number</li>
+					<li data-filter=".game-adventure" class="game-adv proj-games-submenu">Adventure</li>
+				</ul>
+			</ul>
+		<li id="outreach-menu">Outreach</li>
+			<ul class="outreach-submenu">
+				<li id="school-menu" class="outreach-submenu">School Level</li>
+					<ul class="outreach-school-submenu">
+					<li class=" outreach-school-submenu">K-6</li>
+					<li class=" outreach-school-submenu">Middle School</li>
+					<li class=" outreach-school-submenu">High School</li>
+					<li class=" outreach-school-submenu">College</li>
+					</ul>
+				<li id="diver-menu" class="outreach-submenu">Diversity</li>
+					<ul class="outreach-div-submenu">
+						<li class=" outreach-div-submenu">Women</li>
+						<li class=" outreach-div-submenu">Veterans</li>
+						<li class=" outreach-div-submenu">Disabilities</li>
+						<li class=" outreach-div-submenu">Minorities</li>
+					</ul>
+			</ul>
+		<li id="events-menu">Events</li>
+			<li class="events-submenu">Hacakthons</li>
+			<li class="events-submenu">Tech Talks</li>
+			<li class="events-submenu">Job Fairs</li>
+
+	</ul>
+	</div>
+<div class="span10">
 
 <div id="pl-row" class="button-group">
   <button data-filter="*">show all</button>
@@ -98,6 +179,26 @@ $('#game-row').on( 'click', 'button', function() {
 </div>
 
 <div class="isotope">
+		{% for greeting in greetings %}
+	  <div class="item span3 {{greeting.category}} ">
+		<a href="{{greeting.link}}" class="thumbnail">
+			<img src="{{greeting.image}}" alt="...">
+			<div class="caption">
+
+				<b>{{greeting.title}}</b>
+				<blockquote>{{ greeting.description }}</blockquote>
+				<span class="badge">{{ greeting.date }}</span><br>
+				{% if greeting.author %}
+					<i>from {{ greeting.author.nickname() }}</i>
+				{% else %}
+					<i>from an anonymous person</i>
+				{% endif %}
+
+			</div>
+		</a>
+		</div>
+	{% endfor %}
+
 	  <div class="item span3 pl-python game-adventure">
 		<a href="https://github.com/justinmeister/Mario-Level-1" target="_blank" class="thumbnail">
 			<img src="https://camo.githubusercontent.com/901450ea736f8347c94c8244a921074fb2f631a1/68747470733a2f2f7261772e6769746875622e636f6d2f6a757374696e6d6569737465722f4d6172696f2d4c6576656c2d312f6d61737465722f73637265656e73686f742e706e67" alt="...">
@@ -216,27 +317,10 @@ $('#game-row').on( 'click', 'button', function() {
 			</div>
 		</a>
 		</div>
-	{% for greeting in greetings %}
-	  <div class="item span3">
-		<a href="#" class="thumbnail">
-			<img data-src="holder.js/250x250" alt="...">
-			<div class="caption">
-
-				{% if greeting.author %}
-					<b>from {{ greeting.author.nickname() }}</b>
-				{% else %}
-					An anonymous person wrote:
-				{% endif %}
-				<blockquote>{{ greeting.content }}</blockquote>
-<!--				<span class="badge">{{ greeting.date|datetimeformat }}</span>-->
-			</div>
-		</a>
-		</div>
-	{% endfor %}
 		</div>
 </div> <!-- end isotope demo -->
 </div>
-<div class="panel">
+<!-- <div class="panel">
     <form action="/sign?guestbook_name={{ guestbook_name }}" method="post">
       <div><textarea name="content" rows="3" cols="60"></textarea></div>
       <div><input type="submit" value="Sign Guestbook"></div>
@@ -248,7 +332,11 @@ $('#game-row').on( 'click', 'button', function() {
       <input value="{{ guestbook_name }}" name="guestbook_name">
       <input type="submit" value="switch">
     </form>
-
+ -->
+<hr>
+ <footer>
+ 	Made by Amrita, Andy, Sherry, and Sophia!
+ </footer>
 	</div>
   </body>
 </html>
