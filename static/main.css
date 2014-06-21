@@ -39,3 +39,7 @@ margin-top: 10px;
 .proj-games-submenu{
 	font-weight: 400;
 }
+
+.active {
+	color: #1d4767;
+}

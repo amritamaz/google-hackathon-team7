@@ -56,110 +56,160 @@ $(function() {
 $('#buckets-label').click( function(){
 	  var filterValue = $(this).attr('data-filter');
   $('.isotope').isotope({ filter: filterValue });
+  $("li.active").removeClass("active");
+  $(this).addClass('active');
 });
 $('#proj-menu').click( function(){
 	  var filterValue = $(this).attr('data-filter');
   $('.isotope').isotope({ filter: filterValue });
+   $("li.active").removeClass("active");
+  $(this).addClass('active');
 });
 $('#outreach-menu').click( function(){
 	  var filterValue = $(this).attr('data-filter');
   $('.isotope').isotope({ filter: filterValue });
+   $("li.active").removeClass("active");
+  $(this).addClass('active');
 });
 $('#events-menu').click( function(){
 	  var filterValue = $(this).attr('data-filter');
   $('.isotope').isotope({ filter: filterValue });
+   $("li.active").removeClass("active");
+  $(this).addClass('active');
 });
  $('#pl-menu').click( function(){
 	  var filterValue = $(this).attr('data-filter');
   $('.isotope').isotope({ filter: filterValue });
+   $("li.active").removeClass("active");
+  $(this).addClass('active');
 });
 
  $('#game-menu').click( function(){
 	  var filterValue = $(this).attr('data-filter');
   $('.isotope').isotope({ filter: filterValue });
+   $("li.active").removeClass("active");
+  $(this).addClass('active');
 });
 $('#school-menu').click( function(){
 	  var filterValue = $(this).attr('data-filter');
   $('.isotope').isotope({ filter: filterValue });
+   $("li.active").removeClass("active");
+  $(this).addClass('active');
 });
 $('#diver-menu').click( function(){
 	  var filterValue = $(this).attr('data-filter');
   $('.isotope').isotope({ filter: filterValue });
+   $("li.active").removeClass("active");
+  $(this).addClass('active');
 });
 
 $('.game-puzz').click( function(){
 	  var filterValue = $(this).attr('data-filter');
   $('.isotope').isotope({ filter: filterValue });
+   $("li.active").removeClass("active");
+  $(this).addClass('active');
 });
 $('.game-num').click( function(){
 	  var filterValue = $(this).attr('data-filter');
   $('.isotope').isotope({ filter: filterValue });
+   $("li.active").removeClass("active");
+  $(this).addClass('active');
 });
 
 $('.game-adv').click( function(){
 	  var filterValue = $(this).attr('data-filter');
   $('.isotope').isotope({ filter: filterValue });
+   $("li.active").removeClass("active");
+  $(this).addClass('active');
 });
 
 $('.proj-python').click( function(){
 	  var filterValue = $(this).attr('data-filter');
   $('.isotope').isotope({ filter: filterValue });
+   $("li.active").removeClass("active");
+  $(this).addClass('active');
 });
 
 $('.proj-c').click( function(){
 	  var filterValue = $(this).attr('data-filter');
   $('.isotope').isotope({ filter: filterValue });
+   $("li.active").removeClass("active");
+  $(this).addClass('active');
   });
 
 
 $('.proj-js').click( function(){
 	  var filterValue = $(this).attr('data-filter');
   $('.isotope').isotope({ filter: filterValue });
+   $("li.active").removeClass("active");
+  $(this).addClass('active');
 });
 
 $('.outreach-k6').click( function(){
 	  var filterValue = $(this).attr('data-filter');
-  $('.isotope').isotope({ filter: filterValue });
+  $('.isotope').isotope({ filter: filterValue }); 
+  $("li.active").removeClass("active");
+  $(this).addClass('active');
 });
 $('.outreach-middleschool').click( function(){
 	  var filterValue = $(this).attr('data-filter');
   $('.isotope').isotope({ filter: filterValue });
+   $("li.active").removeClass("active");
+  $(this).addClass('active');
 });
 $('.outreach-highschool').click( function(){
 	  var filterValue = $(this).attr('data-filter');
   $('.isotope').isotope({ filter: filterValue });
+   $("li.active").removeClass("active");
+  $(this).addClass('active');
 });
 $('.outreach-college').click( function(){
 	  var filterValue = $(this).attr('data-filter');
   $('.isotope').isotope({ filter: filterValue });
+   $("li.active").removeClass("active");
+  $(this).addClass('active');
 });
 $('.outreach-women').click( function(){
 	  var filterValue = $(this).attr('data-filter');
   $('.isotope').isotope({ filter: filterValue });
+   $("li.active").removeClass("active");
+  $(this).addClass('active');
 });
 $('.outreach-veterans').click( function(){
 	  var filterValue = $(this).attr('data-filter');
   $('.isotope').isotope({ filter: filterValue });
+   $("li.active").removeClass("active");
+  $(this).addClass('active');
 });
 $('.outreach-disabilities').click( function(){
 	  var filterValue = $(this).attr('data-filter');
   $('.isotope').isotope({ filter: filterValue });
+   $("li.active").removeClass("active");
+  $(this).addClass('active');
 });
 $('.outreach-minorities').click( function(){
 	  var filterValue = $(this).attr('data-filter');
   $('.isotope').isotope({ filter: filterValue });
+   $("li.active").removeClass("active");
+  $(this).addClass('active');
 });
 $('.events-hackathons').click( function(){
 	  var filterValue = $(this).attr('data-filter');
   $('.isotope').isotope({ filter: filterValue });
+   $("li.active").removeClass("active");
+  $(this).addClass('active');
 });
 $('.events-techtalks').click( function(){
 	  var filterValue = $(this).attr('data-filter');
   $('.isotope').isotope({ filter: filterValue });
+   $("li.active").removeClass("active");
+  $(this).addClass('active');
 });
 $('.events-jobfairs').click( function(){
 	  var filterValue = $(this).attr('data-filter');
   $('.isotope').isotope({ filter: filterValue });
+     $("li.active").removeClass("active");
+  $(this).addClass('active');
 });
 
 // $('#game-row').on( 'click', 'button', function() {
@@ -167,6 +217,8 @@ $('.events-jobfairs').click( function(){
 //   $('.isotope').isotope({ filter: filterValue });
 // });
 }); 
+
+
 </script>
 
 </head>
@@ -191,7 +243,7 @@ $('.events-jobfairs').click( function(){
 
 <div class="row">
 	<div class="span2" id="buckets">
-	<a><div data-filter="*" id="buckets-label"><h2>Buckets</h2></div></a>
+	<a><div class="active" data-filter="*" id="buckets-label"><h2>Buckets</h2></div></a>
 	<ul id="menu">
 		<a><li data-filter=".pl-python, .pl-c, .pl-javascript, .game-puzzle, .game-number, .game-adventure" id="proj-menu">Projects</li></a>
 			<ul class="proj-submenu">
@@ -227,7 +279,7 @@ $('.events-jobfairs').click( function(){
 			</ul>
 		<a><li data-filter=".events-hackathons, .events-techtalks, .events-jobfairs" id="events-menu">Events</li></a>
 			<ul class="events-submenu">
-				<a><li data-filter=".events-hackathons" class="events-hackathons events-submenu">Hacakthons</li></a>
+				<a><li data-filter=".events-hackathons" class="events-hackathons events-submenu">Hackathons</li></a>
 				<a><li data-filter=".events-techtalks" class="events-techtalks events-submenu">Tech Talks</li></a>
 				<a><li data-filter=".events-jobfairs" class="events-jobfairs events-submenu">Job Fairs</li></a>
 			</ul>
