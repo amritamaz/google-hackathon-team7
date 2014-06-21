@@ -62,6 +62,14 @@ $(function() {
 	  var filterValue = $(this).attr('data-filter');
   $('.isotope').isotope({ filter: filterValue });
 });
+$('#school-menu').click( function(){
+	  var filterValue = $(this).attr('data-filter');
+  $('.isotope').isotope({ filter: filterValue });
+});
+$('#diver-menu').click( function(){
+	  var filterValue = $(this).attr('data-filter');
+  $('.isotope').isotope({ filter: filterValue });
+});
 
 $('.game-puzz').click( function(){
 	  var filterValue = $(this).attr('data-filter');
@@ -186,24 +194,24 @@ $('.events-jobfairs').click( function(){
 			<ul class="outreach-submenu">
 				<li data-filter="*" id="school-menu" class="outreach-submenu">School Level</li>
 					<ul class="outreach-school-submenu">
-					<li data-filter=".outreach-k6" class=" outreach-school-submenu">K-6</li>
-					<li data-filter=".outreach-middleschool" class=" outreach-school-submenu">Middle School</li>
-					<li data-filter=".outreach-highschool" class=" outreach-school-submenu">High School</li>
-					<li data-filter=".outreach-college" class=" outreach-school-submenu">College</li>
+						<li data-filter=".outreach-k6" class="outreach-k6 outreach-school-submenu">K-6</li>
+						<li data-filter=".outreach-middleschool" class="outreach-middleschool outreach-school-submenu">Middle School</li>
+						<li data-filter=".outreach-highschool" class="outreach-highschool outreach-school-submenu">High School</li>
+						<li data-filter=".outreach-college" class="outreach-college outreach-school-submenu">College</li>
 					</ul>
 				<li data-filter="*" id="diver-menu" class="outreach-submenu">Diversity</li>
 					<ul class="outreach-div-submenu">
-						<li data-filter=".outreach-women" class=" outreach-div-submenu">Women</li>
-						<li data-filter=".outreach-veterans" class=" outreach-div-submenu">Veterans</li>
-						<li data-filter=".outreach-disabilities" class=" outreach-div-submenu">Disabilities</li>
-						<li data-filter=".outreach-minorities" class=" outreach-div-submenu">Minorities</li>
+						<li data-filter=".outreach-women" class="outreach-women outreach-div-submenu">Women</li>
+						<li data-filter=".outreach-veterans" class="outreach-veterans outreach-div-submenu">Veterans</li>
+						<li data-filter=".outreach-disabilities" class="outreach-disabilities outreach-div-submenu">Disabilities</li>
+						<li data-filter=".outreach-minorities" class="outreach-minorities outreach-div-submenu">Minorities</li>
 					</ul>
 			</ul>
 		<li id="events-menu">Events</li>
 			<ul class="events-submenu">
-				<li data-filter=".events-hackathons" class="events-submenu">Hacakthons</li>
-				<li data-filter=".events-techtalks" class="events-submenu">Tech Talks</li>
-				<li data-filter=".events-jobfairs" class="events-submenu">Job Fairs</li>
+				<li data-filter=".events-hackathons" class="events-hackathons events-submenu">Hacakthons</li>
+				<li data-filter=".events-techtalks" class="events-techtalks events-submenu">Tech Talks</li>
+				<li data-filter=".events-jobfairs" class="events-jobfairs events-submenu">Job Fairs</li>
 			</ul>
 	</ul>
 	</div>
@@ -211,7 +219,7 @@ $('.events-jobfairs').click( function(){
 
 <div class="isotope">
 		{% for greeting in greetings %}
-	  <div class="item span3 {{greeting.category}} ">
+	  <div class="item span3 {{greeting.category}} ">-h
 		<a href="{{greeting.link}}" class="thumbnail">
 			<img src="{{greeting.image}}" alt="...">
 			<div class="caption">
