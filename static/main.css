@@ -10,4 +10,6 @@
 }
 
 
-.proj-submenu, .outreach-submenu, .events-submenu{display:none;}
+.proj-submenu, .outreach-submenu, .events-submenu, 
+.proj-pl-submenu, .proj-games-submenu, .outreach-div-submenu,
+.outreach-school-submenu {display:none;}

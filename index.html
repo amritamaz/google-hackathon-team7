@@ -37,20 +37,28 @@ $(document).ready(function() {
 <script>
 $(function() {
     $('#proj-menu').click(function(){
-      $('.proj-submenu').slideToggle();
+      $('.proj-submenu').toggle();
+
     });
      $('#pl-menu').click(function(){
-      $('.proj-pl-submenu').slideToggle();
+      $('.proj-pl-submenu').toggle();
     });
     $('#game-menu').click(function(){
-      $('.proj-games-submenu').slideToggle();
+      $('.proj-games-submenu').toggle();
     });
 
     $('#outreach-menu').click(function(){
-      $('.outreach-submenu').slideToggle();
+      $('.outreach-submenu').toggle();
     });
+        $('#school-menu').click(function(){
+      $('.outreach-school-submenu').toggle();
+    });
+    $('#diver-menu').click(function(){
+      $('.outreach-div-submenu').toggle();
+    });
+
     $('#events-menu').click(function(){
-      $('.events-submenu').slideToggle();
+      $('.events-submenu').toggle();
     });
 });
 </script>
@@ -100,25 +108,37 @@ $('#game-row').on( 'click', 'button', function() {
 	<h2>Buckets</h2>
 	<ul id="menu">
 		<li id="proj-menu">Projects</li>
+			<ul class="proj-submenu">
 			<li id="pl-menu" class="proj-submenu">Programming Languages</li>
-				<li class="proj-submenu proj-pl-submenu">Python</li>
-				<li class="proj-submenu proj-pl-submenu">C</li>
-				<li class="proj-submenu proj-pl-submenu">Javascript</li>
+				<ul class="proj-pl-submenu">
+					<li class=" proj-pl-submenu">Python</li>
+					<li class=" proj-pl-submenu">C</li>
+					<li class=" proj-pl-submenu">Javascript</li>
+				</ul>
 			<li id="game-menu" class="proj-submenu">Games</li>
-				<li class="proj-submenu proj-games-submenu">Puzzle</li>
-				<li class="proj-submenu proj-games-submenu">Number</li>
-				<li class="proj-submenu proj-games-submenu">Adventure</li>
+				<ul class="proj-submenu">
+					<li class=" proj-games-submenu">Puzzle</li>
+					<li class=" proj-games-submenu">Number</li>
+					<li class=" proj-games-submenu">Adventure</li>
+				</ul>
+			</ul>
 		<li id="outreach-menu">Outreach</li>
-			<li class="outreach-submenu">School Level</li>
-				<li class="outreach-submenu outreach-school-submenu">K-6</li>
-				<li class="outreach-submenu outreach-school-submenu">Middle School</li>
-				<li class="outreach-submenu outreach-school-submenu">High School</li>
-				<li class="outreach-submenu outreach-school-submenu">College</li>
-			<li class="outreach-submenu">Diversity</li>
-				<li class="outreach-submenu outreach-div-submenu">Women</li>
-				<li class="outreach-submenu outreach-div-submenu">Veterans</li>
-				<li class="outreach-submenu outreach-div-submenu">Disabilities</li>
-				<li class="outreach-submenu outreach-div-submenu">Minorities</li>
+			<ul class="outreach-submenu">
+				<li id="school-menu" class="outreach-submenu">School Level</li>
+					<ul class="outreach-school-submenu">
+					<li class=" outreach-school-submenu">K-6</li>
+					<li class=" outreach-school-submenu">Middle School</li>
+					<li class=" outreach-school-submenu">High School</li>
+					<li class=" outreach-school-submenu">College</li>
+					</ul>
+				<li id="diver-menu" class="outreach-submenu">Diversity</li>
+					<ul class="outreach-div-submenu">
+						<li class=" outreach-div-submenu">Women</li>
+						<li class=" outreach-div-submenu">Veterans</li>
+						<li class=" outreach-div-submenu">Disabilities</li>
+						<li class=" outreach-div-submenu">Minorities</li>
+					</ul>
+			</ul>
 		<li id="events-menu">Events</li>
 			<li class="events-submenu">Hacakthons</li>
 			<li class="events-submenu">Tech Talks</li>
