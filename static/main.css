@@ -13,3 +13,29 @@
 .proj-submenu, .outreach-submenu, .events-submenu, 
 .proj-pl-submenu, .proj-games-submenu, .outreach-div-submenu,
 .outreach-school-submenu {display:none;}
+
+
+ul {
+list-style-type: none;
+padding: 0;
+margin: 0;
+font-weight: 700;
+}
+
+
+#menu li{
+	background: url('/static/blackbucket.png') no-repeat left top;
+width: 20px;
+padding-left: 20px;
+margin-top: 10px;
+
+}
+
+#proj-menu, #outreach-menu, #events-menu{
+	font-size: 1.5em;
+	line-height: 1em;
+}
+
+.proj-games-submenu{
+	font-weight: 400;
+}
