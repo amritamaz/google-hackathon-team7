@@ -53,6 +53,22 @@ $(function() {
 //   $('.isotope').isotope({ filter: filterValue });
 // });
 
+$('#buckets-label').click( function(){
+	  var filterValue = $(this).attr('data-filter');
+  $('.isotope').isotope({ filter: filterValue });
+});
+$('#proj-menu').click( function(){
+	  var filterValue = $(this).attr('data-filter');
+  $('.isotope').isotope({ filter: filterValue });
+});
+$('#outreach-menu').click( function(){
+	  var filterValue = $(this).attr('data-filter');
+  $('.isotope').isotope({ filter: filterValue });
+});
+$('#events-menu').click( function(){
+	  var filterValue = $(this).attr('data-filter');
+  $('.isotope').isotope({ filter: filterValue });
+});
  $('#pl-menu').click( function(){
 	  var filterValue = $(this).attr('data-filter');
   $('.isotope').isotope({ filter: filterValue });
@@ -175,33 +191,33 @@ $('.events-jobfairs').click( function(){
 
 <div class="row">
 	<div class="span2" id="buckets">
-	<h2>Buckets</h2>
+	<a><div data-filter="*" id="buckets-label"><h2>Buckets</h2></div></a>
 	<ul id="menu">
-		<a><li id="proj-menu">Projects</li></a>
+		<a><li data-filter=".pl-python, .pl-c, .pl-javascript, .game-puzzle, .game-number, .game-adventure" id="proj-menu">Projects</li></a>
 			<ul class="proj-submenu">
-			<a><li data-filter="*" id="pl-menu" class="proj-submenu">Programming Languages</li></a>
+			<a><li data-filter=".pl-python, .pl-c, .pl-javascript, .game-puzzle, .game-number, .game-adventure" id="pl-menu" class="proj-submenu">Programming Languages</li></a>
 				<ul class="proj-pl-submenu">
 					<a><li data-filter=".pl-python" class="proj-python proj-pl-submenu">Python</li></a>
 					<a><li data-filter=".pl-c" class="proj-c proj-pl-submenu">C</li></a>
 					<a><li data-filter=".pl-javascript" class="proj-js proj-pl-submenu">Javascript</li></a>
 				</ul>
-			<a><li data-filter="*" id="game-menu" class="proj-submenu">Games</li></a>
+			<a><li data-filter=".pl-python, .pl-c, .pl-javascript, .game-puzzle, .game-number, .game-adventure" id="game-menu" class="proj-submenu">Games</li></a>
 				<ul class="proj-submenu">
 					<a><li data-filter=".game-puzzle" class="game-puzz proj-games-submenu">Puzzle</li></a>
 					<a><li data-filter=".game-number" class="game-num proj-games-submenu">Number</li></a>
 					<a><li data-filter=".game-adventure" class="game-adv proj-games-submenu">Adventure</li></a>
 				</ul>
 			</ul>
-		<a><li id="outreach-menu">Outreach</li></a>
+		<a><li data-filter=".outreach-k6, .outreach-middleschool, .outreach-highschool, .outreach-college, .outreach-women, .outreach-disabilities, .outreach-minorities, .outreach-veterans" id="outreach-menu">Outreach</li></a>
 			<ul class="outreach-submenu">
-				<a><li data-filter="*" id="school-menu" class="outreach-submenu">School Level</li></a>
+				<a><li data-filter=".outreach-k6, .outreach-middleschool, .outreach-highschool, .outreach-college, .outreach-women, .outreach-disabilities, .outreach-minorities, .outreach-veterans" id="school-menu" class="outreach-submenu">School Level</li></a>
 					<ul class="outreach-school-submenu">
 						<a><li data-filter=".outreach-k6" class="outreach-k6 outreach-school-submenu">K-6</li></a>
 						<a><li data-filter=".outreach-middleschool" class="outreach-middleschool outreach-school-submenu">Middle School</li></a>
 						<a><li data-filter=".outreach-highschool" class="outreach-highschool outreach-school-submenu">High School</li></a>
 						<a><li data-filter=".outreach-college" class="outreach-college outreach-school-submenu">College</li></a>
 					</ul>
-				<a><li data-filter="*" id="diver-menu" class="outreach-submenu">Diversity</li></a>
+				<a><li data-filter=".outreach-k6, .outreach-middleschool, .outreach-highschool, .outreach-college, .outreach-women, .outreach-disabilities, .outreach-minorities, .outreach-veterans" id="diver-menu" class="outreach-submenu">Diversity</li></a>
 					<ul class="outreach-div-submenu">
 						<a><li data-filter=".outreach-women" class="outreach-women outreach-div-submenu">Women</li></a>
 						<a><li data-filter=".outreach-veterans" class="outreach-veterans outreach-div-submenu">Veterans</li></a>
@@ -209,7 +225,7 @@ $('.events-jobfairs').click( function(){
 						<a><li data-filter=".outreach-minorities" class="outreach-minorities outreach-div-submenu">Minorities</li></a>
 					</ul>
 			</ul>
-		<a><li id="events-menu">Events</li></a>
+		<a><li data-filter=".events-hackathons, .events-techtalks, .events-jobfairs" id="events-menu">Events</li></a>
 			<ul class="events-submenu">
 				<a><li data-filter=".events-hackathons" class="events-hackathons events-submenu">Hacakthons</li></a>
 				<a><li data-filter=".events-techtalks" class="events-techtalks events-submenu">Tech Talks</li></a>
