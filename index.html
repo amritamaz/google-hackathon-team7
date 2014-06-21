@@ -11,30 +11,6 @@
   <script src="http://isotope.metafizzy.co/isotope.pkgd.min.js"></script>
 <title>Bucket List</title>
 <script>
-
-$(document).ready(function() {
-	$("#pl-row").hide();
-	$("#game-row").hide();
-
-	$("#filtertype").change(function() {
-		$('.isotope').isotope({filter: '*'});
-		var result= $(this).val();
-		if (result=="pl-row"){
-			$("#pl-row").show();
-			$("#game-row").hide();
-		}
-		else if (result=="game-row"){
-			$("#pl-row").hide();
-			$("#game-row").show();
-		}
-		else {
-			$("#pl-row").hide();
-			$("#game-row").hide();
-		}
-	});
-});
-</script>
-<script>
 $(function() {
     $('#proj-menu').click(function(){
       $('.proj-submenu').toggle();
@@ -72,15 +48,55 @@ $(function() {
       columnWidth: 200
     }
   });
-$('#pl-row').on( 'click', 'button', function() {
-  var filterValue = $(this).attr('data-filter');
+// $('#pl-row').on( 'click', 'button', function() {
+//   var filterValue = $(this).attr('data-filter');
+//   $('.isotope').isotope({ filter: filterValue });
+// });
+
+ $('#pl-menu').click( function(){
+	  var filterValue = $(this).attr('data-filter');
   $('.isotope').isotope({ filter: filterValue });
 });
 
-$('#game-row').on( 'click', 'button', function() {
-  var filterValue = $(this).attr('data-filter');
+ $('#game-menu').click( function(){
+	  var filterValue = $(this).attr('data-filter');
   $('.isotope').isotope({ filter: filterValue });
 });
+
+$('.game-puzz').click( function(){
+	  var filterValue = $(this).attr('data-filter');
+  $('.isotope').isotope({ filter: filterValue });
+});
+$('.game-num').click( function(){
+	  var filterValue = $(this).attr('data-filter');
+  $('.isotope').isotope({ filter: filterValue });
+});
+
+$('.game-adv').click( function(){
+	  var filterValue = $(this).attr('data-filter');
+  $('.isotope').isotope({ filter: filterValue });
+});
+
+$('.proj-python').click( function(){
+	  var filterValue = $(this).attr('data-filter');
+  $('.isotope').isotope({ filter: filterValue });
+});
+
+$('.proj-c').click( function(){
+	  var filterValue = $(this).attr('data-filter');
+  $('.isotope').isotope({ filter: filterValue });
+  });
+
+
+$('.proj-js').click( function(){
+	  var filterValue = $(this).attr('data-filter');
+  $('.isotope').isotope({ filter: filterValue });
+});
+
+// $('#game-row').on( 'click', 'button', function() {
+//   var filterValue = $(this).attr('data-filter');
+//   $('.isotope').isotope({ filter: filterValue });
+// });
 }); 
 </script>
 
@@ -109,17 +125,17 @@ $('#game-row').on( 'click', 'button', function() {
 	<ul id="menu">
 		<li id="proj-menu">Projects</li>
 			<ul class="proj-submenu">
-			<li id="pl-menu" class="proj-submenu">Programming Languages</li>
+			<li data-filter="*" id="pl-menu" class="proj-submenu">Programming Languages</li>
 				<ul class="proj-pl-submenu">
-					<li class=" proj-pl-submenu">Python</li>
-					<li class=" proj-pl-submenu">C</li>
-					<li class=" proj-pl-submenu">Javascript</li>
+					<li data-filter=".pl-python" class="proj-python proj-pl-submenu">Python</li>
+					<li data-filter=".pl-c" class="proj-c proj-pl-submenu">C</li>
+					<li data-filter=".pl-javascript" class="proj-js proj-pl-submenu">Javascript</li>
 				</ul>
-			<li id="game-menu" class="proj-submenu">Games</li>
+			<li data-filter="*" id="game-menu" class="proj-submenu">Games</li>
 				<ul class="proj-submenu">
-					<li class=" proj-games-submenu">Puzzle</li>
-					<li class=" proj-games-submenu">Number</li>
-					<li class=" proj-games-submenu">Adventure</li>
+					<li data-filter=".game-puzzle" class="game-puzz proj-games-submenu">Puzzle</li>
+					<li data-filter=".game-number" class="game-num proj-games-submenu">Number</li>
+					<li data-filter=".game-adventure" class="game-adv proj-games-submenu">Adventure</li>
 				</ul>
 			</ul>
 		<li id="outreach-menu">Outreach</li>
@@ -145,55 +161,8 @@ $('#game-row').on( 'click', 'button', function() {
 			<li class="events-submenu">Job Fairs</li>
 
 	</ul>
-
-<!-- 		<ul id="menu">
-		<li id="menu-projects"> <a href="">Projects</a></li>
-			<ul id="projects-items">
-			<li id="proglang"> <a href="">Programming Languages</a></li>
-				<ul id="lang-items">
-					<li class="lang-items" id="c-lang"><a href="">C</a></li>
-					<li class="lang-items" id="python-lang"><a href="">Python</a></li>
-					<li class="lang-items" id="js-lang"><a href="">Javascript</a></li>
-				</ul>
-			<li id="gametype"> <a href="">Games</a></li>
-				<ul id="game-items">
-					<li id="game-puzzle"><a href="">Puzzle</a></li>
-					<li id="game-number"><a href="">Number</a></li>
-					<li id="game-adventure"><a href="">Adventure</a></li>
-				</ul>
-			</ul>
-		<li id="menu-outreach"> <a href="">Outreach</a></li>
-			<ul id="outreach-items">
-			<li id="menu-school"> <a href="">School Level</a></li>
-				<ul id="school-items">
-				<li id="k-6"> <a href="">Elementary and earlier</a></li>
-				<li id="middleschool"> <a href="">Middle School</a></li>
-				<li id="highschool"> <a href="">High School</a></li>
-				<li id="college"> <a href="">College</a></li>
-				</ul>
-			<li item="menu-diversity"> <a href="">Diversity</a></li>
-				<ul id="diversity-items">
-				<li id="women"> <a href="">Women</a></li>
-				<li id="veterans"> <a href="">Veterans</a></li>
-				<li id="disabilities"> <a href="">Disabilities</a></li>
-				<li id="minorities"> <a href="">Minorities</a></li>
-				</ul>
-			</ul>
-		<li id="menu-events"> <a href="">Events</a></li>
-			<ul id="events-items">
-				<li id="hackathons"> <a href="">Hackathons</a></li>
-				<li id="techtalks"> <a href="">Tech Talks</a></li>
-				<li id="jobfairs"> <a href="">Job Fairs</a></li>
-			</ul>
-		</ul>
- -->	</div>
+	</div>
 <div class="span10">
-
-<select id="filtertype">
-	<option >Select filter type...</option>
-	<option value="pl-row" id="proglang">Programming Languages</option>
-	<option value="game-row" id="gametype">Game Type</option>
-</select>
 
 <div id="pl-row" class="button-group">
   <button data-filter="*">show all</button>
