@@ -39,8 +39,9 @@ class Greeting(ndb.Model):
     types = ndb.StringProperty(indexed=False)
     link = ndb.StringProperty(indexed=False)
     language = ndb.StringProperty(indexed=False)
-    gametype = ndb.StringProperty(indexed=False)
+    project = ndb.StringProperty(indexed=False)
     event = ndb.StringProperty(indexed=False)
+    outreach = ndb.StringProperty(indexed=False)
     date = ndb.DateTimeProperty(auto_now_add=True)
 
   
@@ -125,9 +126,9 @@ class Guestbook(webapp2.RequestHandler):
         greeting.image = address
         greeting.link = cgi.escape(self.request.get('link'))  		
         greeting.language = cgi.escape(self.request.get('language'))
-        greeting.gametype = cgi.escape(self.request.get('gametype'))
+        greeting.project = cgi.escape(self.request.get('project'))
         greeting.event = cgi.escape(self.request.get('event'))
-
+        greeting.outreach = cgi.escape(self.request.get('outreach'))
 
         greeting.put()
 
