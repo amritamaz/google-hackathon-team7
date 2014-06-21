@@ -38,10 +38,11 @@ class Greeting(ndb.Model):
     image = ndb.StringProperty(indexed=False)
     types = ndb.StringProperty(indexed=False)
     link = ndb.StringProperty(indexed=False)
+    language = ndb.StringProperty(indexed=False)
+    gametype = ndb.StringProperty(indexed=False)
+    event = ndb.StringProperty(indexed=False)
     date = ndb.DateTimeProperty(auto_now_add=True)
-    language = ndb.DateTimeProperty(auto_now_add=True)
-    gametype = ndb.DateTimeProperty(auto_now_add=True)
-    event = ndb.DateTimeProperty(auto_now_add=True)
+
   
 class MainPage(webapp2.RequestHandler):
 
@@ -123,9 +124,9 @@ class Guestbook(webapp2.RequestHandler):
         greeting.description = cgi.escape(self.request.get('description'))
         greeting.image = address
         greeting.link = cgi.escape(self.request.get('link'))  		
-        #greeting.language = cgi.escape(self.request.get('language'))
-        #greeting.gametype = cgi.escape(self.request.get('gametype'))
-        #greeting.event = cgi.escape(self.request.get('event'))
+        greeting.language = cgi.escape(self.request.get('language'))
+        greeting.gametype = cgi.escape(self.request.get('gametype'))
+        greeting.event = cgi.escape(self.request.get('event'))
 
 
         greeting.put()
