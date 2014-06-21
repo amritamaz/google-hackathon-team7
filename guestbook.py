@@ -62,6 +62,31 @@ class MainPage(webapp2.RequestHandler):
         self.response.write(template.render(template_values))
 
 
+class MyBucketsPage(webapp2.RequestHandler):
+    def get(self):
+        guestbook_name = self.request.get('guestbook_name',
+                                          DEFAULT_GUESTBOOK_NAME)
+        greetings_query = Greeting.query(
+            ancestor=guestbook_key(guestbook_name)).order(Greeting.date)
+        greetings = greetings_query.fetch(10)
+
+        if users.get_current_user():
+            url = users.create_logout_url(self.request.uri)
+            login_logout_text = 'Logout'
+        else:
+            url = users.create_login_url(self.request.uri)
+            login_logout_text = 'Login'
+
+        template_values = {
+            'greetings': greetings,
+            'guestbook_name': urllib.quote_plus(guestbook_name),
+            'url': url,
+            'login_logout_text': login_logout_text,
+        }
+
+        template = JINJA_ENVIRONMENT.get_template('mybuckets.html')
+        self.response.write(template.render(template_values))
+
 class Guestbook(webapp2.RequestHandler):
     def post(self):
         # We set the same parent key on the 'Greeting' to ensure each Greeting
@@ -83,5 +108,6 @@ class Guestbook(webapp2.RequestHandler):
 
 application = webapp2.WSGIApplication([
     ('/', MainPage),
+    ('/mybuckets', MyBucketsPage),
     ('/sign', Guestbook),
 ], debug=True)

@@ -16,6 +16,7 @@ $(document).ready(function() {
 	$("#game-row").hide();
 
 	$("#filtertype").change(function() {
+		$('.isotope').isotope({filter: '*'});
 		var result= $(this).val();
 		if (result=="pl-row"){
 			$("#pl-row").show();
