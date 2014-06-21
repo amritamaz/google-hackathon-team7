@@ -2,6 +2,7 @@
 {% autoescape true %}
 <html>
 <head>
+	<link rel="icon" type="image/ico" href="/static/Bucket.ico"/>
   <link type="text/css" rel="stylesheet" href="/static/main.css" />
   <link type="text/css" rel="stylesheet" href="/static/bootstrap.css" />
   <link type="text/css" rel="stylesheet" href="/static/bootstrap-responsive.css" />
@@ -42,7 +43,7 @@ $(function() {
       $('.proj-pl-submenu').slideToggle();
     });
     $('#game-menu').click(function(){
-      $('.proj-game-submenu').slideToggle();
+      $('.proj-games-submenu').slideToggle();
     });
 
     $('#outreach-menu').click(function(){
@@ -77,43 +78,46 @@ $('#game-row').on( 'click', 'button', function() {
 
 </head>
   <body>
-	<div class="container">
+
+	<div class="container"><nav class="navbar navbar-default">
+<ul class="nav navbar-nav">
+    <li><a href="{{ url|safe }}">{{ login_logout_text }}</a></li>
+    <li><a href="{{ url|safe }}">My Buckets </a></li>
+    <li><a href="/upload"><button type="submit" class="btn btn-default"> + Upload </a></li>
+</ul>
+</nav>
+<br>
+
 	<div class="page-header">
 	
 		<h1> bucketlist <small> a community of resources for students in tech </small></h1>
 
-<nav class="navbar navbar-default">
-<ul class="nav navbar-nav">
-    <li><a href="{{ url|safe }}">{{ login_logout_text }}</a></li>
-    <li><a href="{{ url|safe }}">My Buckets </a></li>
-    <li><button type="submit" class="btn btn-default"><a href="/upload"> + Upload </a></li>
-</ul>
-</nav>
 	</div>
+
 <div class="row">
 	<div class="span2" id="buckets">
 	<h2>Buckets</h2>
 	<ul id="menu">
 		<li id="proj-menu">Projects</li>
 			<li id="pl-menu" class="proj-submenu">Programming Languages</li>
-				<li class="proj-pl-submenu">Python</li>
-				<li class="proj-pl-submenu">C</li>
-				<li class="proj-pl-submenu">Javascript</li>
+				<li class="proj-submenu proj-pl-submenu">Python</li>
+				<li class="proj-submenu proj-pl-submenu">C</li>
+				<li class="proj-submenu proj-pl-submenu">Javascript</li>
 			<li id="game-menu" class="proj-submenu">Games</li>
-				<li class="proj-games-submenu">Puzzle</li>
-				<li class="proj-games-submenu">Number</li>
-				<li class="proj-games-submenu">Adventure</li>
+				<li class="proj-submenu proj-games-submenu">Puzzle</li>
+				<li class="proj-submenu proj-games-submenu">Number</li>
+				<li class="proj-submenu proj-games-submenu">Adventure</li>
 		<li id="outreach-menu">Outreach</li>
 			<li class="outreach-submenu">School Level</li>
-				<li class="outreach-school-submenu">K-6</li>
-				<li class="outreach-school-submenu">Middle School</li>
-				<li class="outreach-school-submenu">High School</li>
-				<li class="outreach-school-submenu">College</li>
+				<li class="outreach-submenu outreach-school-submenu">K-6</li>
+				<li class="outreach-submenu outreach-school-submenu">Middle School</li>
+				<li class="outreach-submenu outreach-school-submenu">High School</li>
+				<li class="outreach-submenu outreach-school-submenu">College</li>
 			<li class="outreach-submenu">Diversity</li>
-				<li class="outreach-div-submenu">Women</li>
-				<li class="outreach-div-submenu">Veterans</li>
-				<li class="outreach-div-submenu">Disabilities</li>
-				<li class="outreach-div-submenu">Minorities</li>
+				<li class="outreach-submenu outreach-div-submenu">Women</li>
+				<li class="outreach-submenu outreach-div-submenu">Veterans</li>
+				<li class="outreach-submenu outreach-div-submenu">Disabilities</li>
+				<li class="outreach-submenu outreach-div-submenu">Minorities</li>
 		<li id="events-menu">Events</li>
 			<li class="events-submenu">Hacakthons</li>
 			<li class="events-submenu">Tech Talks</li>
