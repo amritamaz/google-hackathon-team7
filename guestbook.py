@@ -32,7 +32,11 @@ def guestbook_key(guestbook_name=DEFAULT_GUESTBOOK_NAME):
 class Greeting(ndb.Model):
     """Models an individual Guestbook entry."""
     author = ndb.UserProperty()
-    content = ndb.StringProperty(indexed=False)
+    title = ndb.StringProperty(indexed=False)
+    category = ndb.StringProperty(indexed=False)
+    description = ndb.StringProperty(indexed=False)
+    image = ndb.StringProperty(indexed=False)
+    link = ndb.StringProperty(indexed=False)
     date = ndb.DateTimeProperty(auto_now_add=True)
 
 class MainPage(webapp2.RequestHandler):
@@ -62,12 +66,19 @@ class MainPage(webapp2.RequestHandler):
         self.response.write(template.render(template_values))
 
 
+class UploadPage(webapp2.RequestHandler):
+    def get(self):
+        #self.response.write(MAIN_PAGE_HTML)
+        template = JINJA_ENVIRONMENT.get_template('form.html')
+        self.response.write(template.render())
+
+
 class MyBucketsPage(webapp2.RequestHandler):
     def get(self):
         guestbook_name = self.request.get('guestbook_name',
                                           DEFAULT_GUESTBOOK_NAME)
         greetings_query = Greeting.query(
-            ancestor=guestbook_key(guestbook_name)).order(Greeting.date)
+            ancestor=guestbook_key(guestbook_name)).order(-(Greeting.date))
         greetings = greetings_query.fetch(10)
 
         if users.get_current_user():
@@ -93,6 +104,8 @@ class Guestbook(webapp2.RequestHandler):
         # is in the same entity group. Queries across the single entity group
         # will be consistent. However, the write rate to a single entity group
         # should be limited to ~1/second.
+        address = self.request.get('image')
+
         guestbook_name = self.request.get('guestbook_name',
                                           DEFAULT_GUESTBOOK_NAME)
         greeting = Greeting(parent=guestbook_key(guestbook_name))
@@ -100,7 +113,11 @@ class Guestbook(webapp2.RequestHandler):
         if users.get_current_user():
             greeting.author = users.get_current_user()
 
-        greeting.content = self.request.get('content')
+        greeting.title = cgi.escape(self.request.get('title'))
+        greeting.category = cgi.escape(self.request.get('category'))
+        greeting.description = cgi.escape(self.request.get('description'))
+        greeting.image = address
+        greeting.link = cgi.escape(self.request.get('link'))
         greeting.put()
 
         query_params = {'guestbook_name': guestbook_name}
@@ -108,6 +125,7 @@ class Guestbook(webapp2.RequestHandler):
 
 application = webapp2.WSGIApplication([
     ('/', MainPage),
+    ('/upload', UploadPage),
     ('/mybuckets', MyBucketsPage),
     ('/sign', Guestbook),
 ], debug=True)

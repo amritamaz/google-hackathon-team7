@@ -66,7 +66,7 @@ $('#game-row').on( 'click', 'button', function() {
 <ul class="nav navbar-nav">
     <li><a href="{{ url|safe }}">{{ login_logout_text }}</a></li>
     <li><a href="{{ url|safe }}">My Buckets </a></li>
-    <li><button type="submit" class="btn btn-default"><a href="/static/form.html"> + Upload </a></li>
+    <li><button type="submit" class="btn btn-default"><a href="/upload"> + Upload </a></li>
 </ul>
 </nav>
 	</div>
@@ -99,6 +99,26 @@ $('#game-row').on( 'click', 'button', function() {
 </div>
 
 <div class="isotope">
+		{% for greeting in greetings %}
+	  <div class="item span3 {{greeting.category}}">
+		<a href="#" class="thumbnail">
+			<img src="{{greeting.image}}" alt="...">
+			<div class="caption">
+
+				{% if greeting.author %}
+					<b>from {{ greeting.author.nickname() }}</b>
+				{% else %}
+					An anonymous person wrote:
+				{% endif %}
+				<blockquote>{{ greeting.content }}</blockquote>
+				<blockquote>{{ greeting.description }}</blockquote>
+				<span class="badge">{{ greeting.date }}</span>
+
+			</div>
+		</a>
+		</div>
+	{% endfor %}
+
 	  <div class="item span3 pl-python game-adventure">
 		<a href="#" class="thumbnail">
 			<img src="https://camo.githubusercontent.com/901450ea736f8347c94c8244a921074fb2f631a1/68747470733a2f2f7261772e6769746875622e636f6d2f6a757374696e6d6569737465722f4d6172696f2d4c6576656c2d312f6d61737465722f73637265656e73686f742e706e67" alt="...">
@@ -153,27 +173,10 @@ $('#game-row').on( 'click', 'button', function() {
 			</div>
 		</a>
 		</div>
-	{% for greeting in greetings %}
-	  <div class="item span3">
-		<a href="#" class="thumbnail">
-			<img data-src="holder.js/250x250" alt="...">
-			<div class="caption">
-
-				{% if greeting.author %}
-					<b>from {{ greeting.author.nickname() }}</b>
-				{% else %}
-					An anonymous person wrote:
-				{% endif %}
-				<blockquote>{{ greeting.content }}</blockquote>
-<!--				<span class="badge">{{ greeting.date|datetimeformat }}</span>-->
-			</div>
-		</a>
-		</div>
-	{% endfor %}
 		</div>
 </div> <!-- end isotope demo -->
 </div>
-<div class="panel">
+<!-- <div class="panel">
     <form action="/sign?guestbook_name={{ guestbook_name }}" method="post">
       <div><textarea name="content" rows="3" cols="60"></textarea></div>
       <div><input type="submit" value="Sign Guestbook"></div>
@@ -185,7 +188,11 @@ $('#game-row').on( 'click', 'button', function() {
       <input value="{{ guestbook_name }}" name="guestbook_name">
       <input type="submit" value="switch">
     </form>
-
+ -->
+<hr>
+ <footer>
+ 	Made by Amrita, Andy, Sherry, and Sophia!
+ </footer>
 	</div>
   </body>
 </html>
