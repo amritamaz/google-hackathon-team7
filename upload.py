@@ -15,37 +15,52 @@
 # limitations under the License.
 #
 import cgi
+import os
+import urllib
+
 from google.appengine.api import users
+from google.appengine.ext import ndb
+
+import jinja2
 import webapp2
-#from PIL import Image
 
-MAIN_PAGE_HTML = """\
-<html>
-  <body>
 
-    <form action="sign" method="post">
-       Title:<textarea name="title" rows="1" cols="60"></textarea>
-    <form action="sign" method="post"><br>
-       Category:
-    <select name="category">
-      <option value="project">Project</option>
-      <option value="events">Events</option>
-    </select> 
-    <form action="sign" method="post"><br>
-       Description:<textarea name="description" rows="1" cols="60"></textarea>
-    <form action="sign" method="post"><br>
-       Image:<textarea name="image" rows="1" cols="60"></textarea>
-    <form action="sign" method="post"><br>
-       Link:<textarea name="link" rows="1" cols="60"></textarea>
-      <div><input type="submit" value="Submit"></div>
-    </form>
-  </body>
-</html>
-"""
+JINJA_ENVIRONMENT = jinja2.Environment(
+    loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
+    extensions=['jinja2.ext.autoescape'],
+    autoescape=True)
+
+
+#MAIN_PAGE_HTML = """\
+#<html>
+#  <body>
+
+#    <form action="sign" method="post">
+#       Title:<textarea name="title" rows="1" cols="60"></textarea>
+#    <form action="sign" method="post"><br>
+#       Category:
+#    <select name="category">
+#      <option value="project">Project</option>
+#      <option value="events">Events</option>
+#    </select> 
+#    <form action="sign" method="post"><br>
+#       Description:<textarea name="description" rows="1" cols="60"></textarea>
+#    <form action="sign" method="post"><br>
+#       Image:<textarea name="image" rows="1" cols="60"></textarea>
+#    <form action="sign" method="post"><br>
+#       Link:<textarea name="link" rows="1" cols="60"></textarea>
+#      <div><input type="submit" value="Submit"></div>
+#    </form>
+#  </body>
+#</html>
+#"""
 
 class MainPage(webapp2.RequestHandler):
     def get(self):
-        self.response.write(MAIN_PAGE_HTML)
+        #self.response.write(MAIN_PAGE_HTML)
+	template = JINJA_ENVIRONMENT.get_template('form.html')
+	self.response.write(template.render())
+
 
 class Guestbook(webapp2.RequestHandler):
     def post(self):
