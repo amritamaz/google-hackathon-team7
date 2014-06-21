@@ -1,0 +1,12 @@
+.isotope:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.item {
+	float: left;
+	margin-bottom: 30px;
+}
+
+
