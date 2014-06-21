@@ -93,6 +93,51 @@ $('.proj-js').click( function(){
   $('.isotope').isotope({ filter: filterValue });
 });
 
+$('.outreach-k6').click( function(){
+	  var filterValue = $(this).attr('data-filter');
+  $('.isotope').isotope({ filter: filterValue });
+});
+$('.outreach-middleschool').click( function(){
+	  var filterValue = $(this).attr('data-filter');
+  $('.isotope').isotope({ filter: filterValue });
+});
+$('.outreach-highschool').click( function(){
+	  var filterValue = $(this).attr('data-filter');
+  $('.isotope').isotope({ filter: filterValue });
+});
+$('.outreach-college').click( function(){
+	  var filterValue = $(this).attr('data-filter');
+  $('.isotope').isotope({ filter: filterValue });
+});
+$('.outreach-women').click( function(){
+	  var filterValue = $(this).attr('data-filter');
+  $('.isotope').isotope({ filter: filterValue });
+});
+$('.outreach-veterans').click( function(){
+	  var filterValue = $(this).attr('data-filter');
+  $('.isotope').isotope({ filter: filterValue });
+});
+$('.outreach-disabilities').click( function(){
+	  var filterValue = $(this).attr('data-filter');
+  $('.isotope').isotope({ filter: filterValue });
+});
+$('.outreach-minorities').click( function(){
+	  var filterValue = $(this).attr('data-filter');
+  $('.isotope').isotope({ filter: filterValue });
+});
+$('.events-hackathons').click( function(){
+	  var filterValue = $(this).attr('data-filter');
+  $('.isotope').isotope({ filter: filterValue });
+});
+$('.events-techtalks').click( function(){
+	  var filterValue = $(this).attr('data-filter');
+  $('.isotope').isotope({ filter: filterValue });
+});
+$('.events-jobfairs').click( function(){
+	  var filterValue = $(this).attr('data-filter');
+  $('.isotope').isotope({ filter: filterValue });
+});
+
 // $('#game-row').on( 'click', 'button', function() {
 //   var filterValue = $(this).attr('data-filter');
 //   $('.isotope').isotope({ filter: filterValue });
@@ -141,26 +186,27 @@ $('.proj-js').click( function(){
 			</ul>
 		<li id="outreach-menu">Outreach</li>
 			<ul class="outreach-submenu">
-				<li id="school-menu" class="outreach-submenu">School Level</li>
+				<li data-filter="*" id="school-menu" class="outreach-submenu">School Level</li>
 					<ul class="outreach-school-submenu">
-					<li class=" outreach-school-submenu">K-6</li>
-					<li class=" outreach-school-submenu">Middle School</li>
-					<li class=" outreach-school-submenu">High School</li>
-					<li class=" outreach-school-submenu">College</li>
+					<li data-filter=".outreach-k6" class=" outreach-school-submenu">K-6</li>
+					<li data-filter=".outreach-middleschool" class=" outreach-school-submenu">Middle School</li>
+					<li data-filter=".outreach-highschool" class=" outreach-school-submenu">High School</li>
+					<li data-filter=".outreach-college" class=" outreach-school-submenu">College</li>
 					</ul>
-				<li id="diver-menu" class="outreach-submenu">Diversity</li>
+				<li data-filter="*" id="diver-menu" class="outreach-submenu">Diversity</li>
 					<ul class="outreach-div-submenu">
-						<li class=" outreach-div-submenu">Women</li>
-						<li class=" outreach-div-submenu">Veterans</li>
-						<li class=" outreach-div-submenu">Disabilities</li>
-						<li class=" outreach-div-submenu">Minorities</li>
+						<li data-filter=".outreach-women" class=" outreach-div-submenu">Women</li>
+						<li data-filter=".outreach-veterans" class=" outreach-div-submenu">Veterans</li>
+						<li data-filter=".outreach-disabilities" class=" outreach-div-submenu">Disabilities</li>
+						<li data-filter=".outreach-minorities" class=" outreach-div-submenu">Minorities</li>
 					</ul>
 			</ul>
 		<li id="events-menu">Events</li>
-			<li class="events-submenu">Hacakthons</li>
-			<li class="events-submenu">Tech Talks</li>
-			<li class="events-submenu">Job Fairs</li>
-
+			<ul class="events-submenu">
+				<li data-filter=".events-hackathons" class="events-submenu">Hacakthons</li>
+				<li data-filter=".events-techtalks" class="events-submenu">Tech Talks</li>
+				<li data-filter=".events-jobfairs" class="events-submenu">Job Fairs</li>
+			</ul>
 	</ul>
 	</div>
 <div class="span10">
