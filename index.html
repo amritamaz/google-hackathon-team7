@@ -83,7 +83,8 @@ $('#game-row').on( 'click', 'button', function() {
 <ul class="nav navbar-nav">
     <li><a href="{{ url|safe }}">{{ login_logout_text }}</a></li>
     <li><a href="{{ url|safe }}">My Buckets </a></li>
-    <li><a href="/upload" type="submit"> + Upload </a></li>
+    <form action="/upload"><input type="submit" value="Upload"></form>
+    <!--<li><a href="/upload"><button type="submit" class="btn btn-default"> + Upload </a></li>-->
 </ul>
 </nav>
 <br>
