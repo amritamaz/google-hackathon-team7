@@ -1,24 +1,83 @@
 <!DOCTYPE html>
 {% autoescape true %}
 <html>
+
+<head>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script>
+  $(document).ready(function(){
+    $(".categories").hide();
+
+    $("#cat_id").change(function() {
+
+      if(document.getElementById("cat_id").value == "project") {
+        $("#project_cats").show();
+        $("#event_cats").hide();
+      }
+
+      else if(document.getElementById('cat_id').value == "events") {
+        $("#project_cats").hide();
+        $("#event_cats").show();
+      }
+
+    });
+  });
+</script> 
+
+</head>
+
+<style type="text/css">
+label{
+    display: inline-block;
+    float: left;
+    clear: left;
+    width: 80px;
+    text-align: right;
+    margin-right: 10px;
+}
+input select {
+  display: inline-block;
+  float: left;
+}
+
+</style>
+
   <body>
 
+  <div class="container">
     <form action="sign" method="post">
-       Title:<textarea name="title" rows="1" cols="60"></textarea>
-    <form action="sign" method="post"><br>
-       Category:
-    <select name="category">
+       <label>Title:</label><input name="title" rows="1" cols="60"></input><br>
+       <label>Category:</label>
+    <select name="category" id="cat_id">
+      <option value="none">Select a Category</option>
       <option value="project">Project</option>
-      <option value="events">Events</option>
-    </select> 
-    <form action="sign" method="post"><br>
-       Description:<textarea name="description" rows="1" cols="60"></textarea>
-    <form action="sign" method="post"><br>
-       Image:<textarea name="image" rows="1" cols="60"></textarea>
-    <form action="sign" method="post"><br>
-       Link:<textarea name="link" rows="1" cols="60"></textarea>
-      <div><input type="submit" value="Submit"></div>
+      <option value="events">Event</option>
+    </select><br>
+
+    <div id="project_cats" class="categories">
+    <input type="checkbox" name="category" value="java">Java<br>
+  <input type="checkbox" name="category" value="c">C<br> 
+  <input type="checkbox" name="category" value="python">Python<br>
+  <input type="checkbox" name="category" value="c">JavaScript<br><br>
+
+    <input type="checkbox" name="category" value="adventure">Adventure<br>
+  <input type="checkbox" name="category" value="number">Number<br> 
+  <input type="checkbox" name="category" value="puzzle">Puzzle
+  </div>
+
+  <div id="event_cats" class="categories">
+    <input type="checkbox" name="category" value="hackathons">Hackathons<br>
+  <input type="checkbox" name="category" value="techtalks">Tech Talks<br> 
+  <input type="checkbox" name="category" value="job fairs">Job Fairs
+  </div>
+
+       <label>Description:</label><input name="description" rows="1" cols="60"></input><br>
+       <label>Image:</label><input name="image" rows="1" cols="60"></input><br>
+       <label>Link:</label><input name="link" rows="1" cols="60"></input><br><br>
+    <label>&nbsp;</label><input type="submit" value="Submit"></input>
     </form>
+  </div>
+
   </body>
 </html>
 {% endautoescape %}
