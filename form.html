@@ -13,13 +13,21 @@
       if(document.getElementById("cat_id").value == "project") {
         $("#project_cats").show();
         $("#event_cats").hide();
+        $("#outreach_cats").hide();
       }
-
       else if(document.getElementById('cat_id').value == "events") {
+      	$("#event_cats").show();
         $("#project_cats").hide();
-        $("#event_cats").show();
+        $("#outreach_cats").hide();
       }
-
+      else if(document.getElementById('cat_id').value == "outreach") {
+      	$("#event_cats").hide();
+        $("#project_cats").hide();
+        $("#outreach_cats").show();
+      }
+      else {
+      	$(".categories").hide();
+      }
     });
   });
 </script> 
@@ -52,29 +60,42 @@ input select {
       <option value="none">Select a Category</option>
       <option value="project">Project</option>
       <option value="events">Event</option>
+      <option value="outreach">Outreach</option>
     </select><br>
 
     <div id="project_cats" class="categories" style="margin-left:90px">
-
-    <p>Programming Language:</p>
-
+    <br><span>Programming Languages:</span><br>
     <input type="checkbox" name="language" value="java">Java<br>
   <input type="checkbox" name="language" value="c">C<br> 
   <input type="checkbox" name="language" value="python">Python<br>
-  <input type="checkbox" name="language" value="javascript">JavaScript<br><br>
+  <input type="checkbox" name="language" value="javascript">JavaScript<br>
 
-    <input type="checkbox" name="gametype" value="adventure">Adventure<br>
-  <input type="checkbox" name="gametype" value="number">Number<br> 
-  <input type="checkbox" name="gametype" value="puzzle">Puzzle
+    <br><span>Project Type:</span><br>
+    <input type="checkbox" name="project" value="game">Game<br>
+  <input type="checkbox" name="project" value="mobile">Mobile App<br> 
+  <input type="checkbox" name="project" value="research">Research<br><br>
   </div>
 
-  <div id="event_cats" class="categories">
+  <div id="event_cats" class="categories" style="margin-left:90px">
+  <br><span>Event Type:</span><br>
     <input type="checkbox" name="event" value="hackathons">Hackathons<br>
   <input type="checkbox" name="event" value="techtalks">Tech Talks<br> 
-  <input type="checkbox" name="event" value="job fairs">Job Fairs
+  <input type="checkbox" name="event" value="job fairs">Job Fairs<br><br>
   </div>
 
-       <label>Description:</label><input name="description" rows="1" cols="60"></input><br>
+  <div id="outreach_cats" class="categories" style="margin-left:90px">
+  <br><span>Group:</span><br>
+    <input type="checkbox" name="outreach" value="females">Women/Girls<br>
+  <input type="checkbox" name="outreach" value="veterans">Veterans<br> 
+  <input type="checkbox" name="outreach" value="disabled">Disabled<br>
+  <input type="checkbox" name="outreach" value="minorities">Minorities<br>
+  <input type="checkbox" name="outreach" value="elementary">Elementary School<br>
+  <input type="checkbox" name="outreach" value="middle">Middle School<br>
+  <input type="checkbox" name="outreach" value="high">High School<br>
+  <input type="checkbox" name="outreach" value="college">College<br><br>
+  </div>
+
+       <label>Description:</label><input name="description" rows="1" cols="60" style="height:50px"></input><br>
        <label>Image:</label><input name="image" rows="1" cols="60"></input><br>
        <label>Link:</label><input name="link" rows="1" cols="60"></input><br><br>
     <label>&nbsp;</label><input type="submit" value="Submit"></input>
