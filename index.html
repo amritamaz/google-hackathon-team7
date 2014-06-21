@@ -3,9 +3,10 @@
 <html>
 <head>
 	<link rel="icon" type="image/ico" href="/static/Bucket.ico"/>
-  <link type="text/css" rel="stylesheet" href="/static/main.css" />
   <link type="text/css" rel="stylesheet" href="/static/bootstrap.css" />
   <link type="text/css" rel="stylesheet" href="/static/bootstrap-responsive.css" />
+    <link type="text/css" rel="stylesheet" href="/static/main.css" />
+
   <script src="/static/holder.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <script src="http://isotope.metafizzy.co/isotope.pkgd.min.js"></script>
@@ -234,9 +235,9 @@ $('.events-jobfairs').click( function(){
 				<blockquote>{{ greeting.description }}</blockquote>
 				<span class="badge">{{ greeting.date }}</span><br>
 				{% if greeting.author %}
-					<i>from {{ greeting.author.nickname() }}</i>
+					<i>{{ greeting.author.nickname() }}:</i>
 				{% else %}
-					<i>from an anonymous person</i>
+					<i>an anonymous person:</i>
 				{% endif %}
 
 			</div>
