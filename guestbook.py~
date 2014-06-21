@@ -39,23 +39,10 @@ class Greeting(ndb.Model):
     types = ndb.StringProperty(indexed=False)
     link = ndb.StringProperty(indexed=False)
     date = ndb.DateTimeProperty(auto_now_add=True)
-
-
-    projects = ndb.DateTimeProperty(auto_now_add=True)
-    outreach = ndb.DateTimeProperty(auto_now_add=True)
-    women = ndb.DateTimeProperty(auto_now_add=True)
-    elementary = ndb.DateTimeProperty(auto_now_add=True)
-    highschool = ndb.DateTimeProperty(auto_now_add=True)
-    middleschool = ndb.DateTimeProperty(auto_now_add=True)
-    college = ndb.DateTimeProperty(auto_now_add=True)
-    veterans = ndb.DateTimeProperty(auto_now_add=True)
-    disabilities = ndb.DateTimeProperty(auto_now_add=True)
-    minorities = ndb.DateTimeProperty(auto_now_add=True)
-    events = ndb.DateTimeProperty(auto_now_add=True)
-    hackathons = ndb.DateTimeProperty(auto_now_add=True)
-    techtalks = ndb.DateTimeProperty(auto_now_add=True)
-    jobfairs = ndb.DateTimeProperty(auto_now_add=True)
-
+    language = ndb.DateTimeProperty(auto_now_add=True)
+    gametype = ndb.DateTimeProperty(auto_now_add=True)
+    event = ndb.DateTimeProperty(auto_now_add=True)
+  
 class MainPage(webapp2.RequestHandler):
 
     def get(self):
@@ -136,6 +123,12 @@ class Guestbook(webapp2.RequestHandler):
         greeting.description = cgi.escape(self.request.get('description'))
         greeting.image = address
         greeting.link = cgi.escape(self.request.get('link'))
+  		
+		greeting.language = cgi.escape(self.request.get('language'))
+		greeting.gametype = cgi.escape(self.request.get('gametype'))
+		greeting.event = cgi.escape(self.request.get('event'))
+
+
         greeting.put()
 
         query_params = {'guestbook_name': guestbook_name}

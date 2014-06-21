@@ -39,23 +39,10 @@ class Greeting(ndb.Model):
     types = ndb.StringProperty(indexed=False)
     link = ndb.StringProperty(indexed=False)
     date = ndb.DateTimeProperty(auto_now_add=True)
-
-
-    projects = ndb.DateTimeProperty(auto_now_add=True)
-    outreach = ndb.DateTimeProperty(auto_now_add=True)
-    women = ndb.DateTimeProperty(auto_now_add=True)
-    elementary = ndb.DateTimeProperty(auto_now_add=True)
-    highschool = ndb.DateTimeProperty(auto_now_add=True)
-    middleschool = ndb.DateTimeProperty(auto_now_add=True)
-    college = ndb.DateTimeProperty(auto_now_add=True)
-    veterans = ndb.DateTimeProperty(auto_now_add=True)
-    disabilities = ndb.DateTimeProperty(auto_now_add=True)
-    minorities = ndb.DateTimeProperty(auto_now_add=True)
-    events = ndb.DateTimeProperty(auto_now_add=True)
-    hackathons = ndb.DateTimeProperty(auto_now_add=True)
-    techtalks = ndb.DateTimeProperty(auto_now_add=True)
-    jobfairs = ndb.DateTimeProperty(auto_now_add=True)
-
+    language = ndb.DateTimeProperty(auto_now_add=True)
+    gametype = ndb.DateTimeProperty(auto_now_add=True)
+    event = ndb.DateTimeProperty(auto_now_add=True)
+  
 class MainPage(webapp2.RequestHandler):
 
     def get(self):
@@ -136,20 +123,11 @@ class Guestbook(webapp2.RequestHandler):
         greeting.description = cgi.escape(self.request.get('description'))
         greeting.image = address
         greeting.link = cgi.escape(self.request.get('link'))
-  #       greeting.projects = cgi.escape(self.request.get('projects'))
-		# greeting.outreach = cgi.escape(self.request.get('outreach'))
-		# greeting.women = cgi.escape(self.request.get('women'))
-		# greeting.elementary = cgi.escape(self.request.get('elementary'))
-		# greeting.highschool = cgi.escape(self.request.get('highschool'))
-		# greeting.middleschool = cgi.escape(self.request.get('middleschool'))
-		# greeting.college = cgi.escape(self.request.get('college'))
-		# greeting.veterans = cgi.escape(self.request.get('verterans'))
-		# greeting.disabilities = cgi.escape(self.request.get('disabilities'))
-		# greeting.minorities = cgi.escape(self.request.get('minorities'))
-		# greeting.events = cgi.escape(self.request.get('events'))
-		# greeting.hackathons = cgi.escape(self.request.get('hackathons'))
-		# greeting.techtalks = cgi.escape(self.request.get('techtalks'))
-		# greeting.jobfairs = cgi.escape(self.request.get('jobfairs'))
+  		
+		greeting.language = cgi.escape(self.request.get('language'))
+		greeting.gametype = cgi.escape(self.request.get('gametype'))
+		greeting.event = cgi.escape(self.request.get('event'))
+
 
         greeting.put()
 
