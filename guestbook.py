@@ -96,6 +96,7 @@ class MyBucketsPage(webapp2.RequestHandler):
 
         template_values = {
             'greetings': greetings,
+            'curr_username': users.get_current_user(),
             'guestbook_name': urllib.quote_plus(guestbook_name),
             'url': url,
             'login_logout_text': login_logout_text,

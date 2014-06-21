@@ -4,11 +4,22 @@ body {
 	font-family: 'Lato', sans-serif;
 }
 
+#navigators{
+	float:right;
+	display:block;
+	margin-top: -50px;
+}
+
 .isotope:after {
   content: '';
   display: block;
   clear: both;
 }
+
+.page-header {
+  margin: 20px 0 10px;
+}
+
 
 .item {
 	float: left;

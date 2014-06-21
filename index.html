@@ -174,31 +174,17 @@ $('.events-jobfairs').click( function(){
   <body>
 
 	<div class="container">
-<br>
 
 	<div class="page-header">
-		<h1> bucketlist <small> a community of resources for students in tech </small></h1>
-<nav class="navbar navbar-default " role="navigation">
-  <div class="container">
-          <ul class="nav navbar-nav">
-        <li class="active"><a href="#">{{ login_logout_text }}</a></li>
-        <li><a href="#">My Buckets</a></li>
-	    <form action="upload"><input class="btn btn-default navbar-btn" type="submit" value="Upload"></form>
-
-      </ul>
-
-  </div>
-</nav>
-
-<!-- 		
-	<nav>
-		<ul class="nav navbar">
+		<h1><a href="/"> bucketlist</a> <small> a community of resources for students in tech </small></h1>
+<div id="navigators">
+ <ul class="nav nav-pills">
+ 				<li><form class="navbar-form navbar-left" action="upload"><input class="btn" type="submit" value="Upload"></form></li>
+		    <li><a href="/mybuckets">My Buckets </a></li>
 		    <li><a href="{{ url|safe }}">{{ login_logout_text }}</a></li>
-		    <li><a href="{{ url|safe }}">My Buckets </a></li>
-		    <form action="upload"><input type="submit" value="Upload"></form>
-		</ul>
-	</nav> -->
-<br>
+</ul>
+
+</div>
 	</div>
 
 <div class="row">
@@ -249,14 +235,13 @@ $('.events-jobfairs').click( function(){
 
 <div class="isotope">
 		{% for greeting in greetings %}
-	  <div class="item span3 {{greeting.category}} ">-h
+	  <div class="item span3 {{greeting.category}} ">
 		<a href="{{greeting.link}}" class="thumbnail">
 			<img src="{{greeting.image}}" alt="...">
 			<div class="caption">
 
 				<b>{{greeting.title}}</b>
 				<blockquote>{{ greeting.description }}</blockquote>
-				<span class="badge">{{ greeting.date }}</span><br>
 				{% if greeting.author %}
 					<i>{{ greeting.author.nickname() }}:</i>
 				{% else %}
