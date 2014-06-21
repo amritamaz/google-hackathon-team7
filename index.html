@@ -32,9 +32,25 @@ $(document).ready(function() {
 		}
 	});
 });
+</script>
+<script>
+$(function() {
+    $('#proj-menu').click(function(){
+      $('.proj-submenu').slideToggle();
+    });
+     $('#pl-menu').click(function(){
+      $('.proj-pl-submenu').slideToggle();
+    });
+    $('#game-menu').click(function(){
+      $('.proj-game-submenu').slideToggle();
+    });
 
-$(document).ready(function() {
-
+    $('#outreach-menu').click(function(){
+      $('.outreach-submenu').slideToggle();
+    });
+    $('#events-menu').click(function(){
+      $('.events-submenu').slideToggle();
+    });
 });
 </script>
 
@@ -77,13 +93,51 @@ $('#game-row').on( 'click', 'button', function() {
 <div class="row">
 	<div class="span2" id="buckets">
 	<h2>Buckets</h2>
-		<ul id="menu">
+	<ul id="menu">
+		<li id="proj-menu">Projects</li>
+			<li id="pl-menu" class="proj-submenu">Programming Languages</li>
+				<li class="proj-pl-submenu">Python</li>
+				<li class="proj-pl-submenu">C</li>
+				<li class="proj-pl-submenu">Javascript</li>
+			<li id="game-menu" class="proj-submenu">Games</li>
+				<li class="proj-games-submenu">Puzzle</li>
+				<li class="proj-games-submenu">Number</li>
+				<li class="proj-games-submenu">Adventure</li>
+		<li id="outreach-menu">Outreach</li>
+			<li class="outreach-submenu">School Level</li>
+				<li class="outreach-school-submenu">K-6</li>
+				<li class="outreach-school-submenu">Middle School</li>
+				<li class="outreach-school-submenu">High School</li>
+				<li class="outreach-school-submenu">College</li>
+			<li class="outreach-submenu">Diversity</li>
+				<li class="outreach-div-submenu">Women</li>
+				<li class="outreach-div-submenu">Veterans</li>
+				<li class="outreach-div-submenu">Disabilities</li>
+				<li class="outreach-div-submenu">Minorities</li>
+		<li id="events-menu">Events</li>
+			<li class="events-submenu">Hacakthons</li>
+			<li class="events-submenu">Tech Talks</li>
+			<li class="events-submenu">Job Fairs</li>
+
+	</ul>
+
+<!-- 		<ul id="menu">
 		<li id="menu-projects"> <a href="">Projects</a></li>
 			<ul id="projects-items">
 			<li id="proglang"> <a href="">Programming Languages</a></li>
+				<ul id="lang-items">
+					<li class="lang-items" id="c-lang"><a href="">C</a></li>
+					<li class="lang-items" id="python-lang"><a href="">Python</a></li>
+					<li class="lang-items" id="js-lang"><a href="">Javascript</a></li>
+				</ul>
 			<li id="gametype"> <a href="">Games</a></li>
+				<ul id="game-items">
+					<li id="game-puzzle"><a href="">Puzzle</a></li>
+					<li id="game-number"><a href="">Number</a></li>
+					<li id="game-adventure"><a href="">Adventure</a></li>
+				</ul>
 			</ul>
-		<li id="menu-outreach"> <a href="">Outreach</a></li><br>
+		<li id="menu-outreach"> <a href="">Outreach</a></li>
 			<ul id="outreach-items">
 			<li id="menu-school"> <a href="">School Level</a></li>
 				<ul id="school-items">
@@ -97,15 +151,17 @@ $('#game-row').on( 'click', 'button', function() {
 				<li id="women"> <a href="">Women</a></li>
 				<li id="veterans"> <a href="">Veterans</a></li>
 				<li id="disabilities"> <a href="">Disabilities</a></li>
-				<li id="minorities"> <a href="">Minorities</a></h5>
+				<li id="minorities"> <a href="">Minorities</a></li>
+				</ul>
 			</ul>
+		<li id="menu-events"> <a href="">Events</a></li>
+			<ul id="events-items">
+				<li id="hackathons"> <a href="">Hackathons</a></li>
+				<li id="techtalks"> <a href="">Tech Talks</a></li>
+				<li id="jobfairs"> <a href="">Job Fairs</a></li>
 			</ul>
-		<li id="menu-events"> <a href="">Events</a></li><br>
-			<h4> <a href="">Hackathons</a></h4>
-			<h4> <a href="">Tech Talks</a></h4>
-			<h4> <a href="">Job Fairs</a></h4>
 		</ul>
-	</div>
+ -->	</div>
 <div class="span10">
 
 <select id="filtertype">
