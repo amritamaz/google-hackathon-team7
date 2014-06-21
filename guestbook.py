@@ -39,8 +39,9 @@ class Greeting(ndb.Model):
     types = ndb.StringProperty(indexed=False)
     link = ndb.StringProperty(indexed=False)
     language = ndb.StringProperty(indexed=False)
-    gametype = ndb.StringProperty(indexed=False)
+    project = ndb.StringProperty(indexed=False)
     event = ndb.StringProperty(indexed=False)
+    outreach = ndb.StringProperty(indexed=False)
     date = ndb.DateTimeProperty(auto_now_add=True)
 
   
