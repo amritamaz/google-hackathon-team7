@@ -126,9 +126,9 @@ class Guestbook(webapp2.RequestHandler):
         greeting.image = address
         greeting.link = cgi.escape(self.request.get('link'))  		
         greeting.language = cgi.escape(self.request.get('language'))
-        greeting.gametype = cgi.escape(self.request.get('gametype'))
+        greeting.project = cgi.escape(self.request.get('project'))
         greeting.event = cgi.escape(self.request.get('event'))
-
+        greeting.outreach = cgi.escape(self.request.get('outreach'))
 
         greeting.put()
 
