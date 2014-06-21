@@ -1,8 +1,25 @@
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700,900);
+
+body {
+	font-family: 'Lato', sans-serif;
+}
+
+#navigators{
+	float:right;
+	display:block;
+	margin-top: -50px;
+}
+
 .isotope:after {
   content: '';
   display: block;
   clear: both;
 }
+
+.page-header {
+  margin: 20px 0 10px;
+}
+
 
 .item {
 	float: left;
@@ -25,19 +42,28 @@ font-weight: 700;
 
 #menu li{
 	background: url('/static/blackbucket.png') no-repeat left top;
-width: 20px;
 padding-left: 20px;
 margin-top: 10px;
 
 }
 
+.proj-submenu, .outreach-submenu, .events-submenu{
+	margin-left:10px;
+}
+
 #proj-menu, #outreach-menu, #events-menu{
 	font-size: 1.5em;
 	line-height: 1em;
+	padding-left:30px;
 }
 
-.proj-games-submenu{
+.proj-games-submenu,
+.proj-pl-submenu,
+.outreach-school-submenu,
+.outreach-div-submenu,
+.events-submenu{
 	font-weight: 400;
+	margin-left: 20px;
 }
 
 .active {
